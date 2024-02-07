@@ -14,7 +14,7 @@ resource "google_project_service" "compute_service" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  count        = 3
+  count        = 6
   name         = "terraform-${count.index + 1}"
   machine_type = "f1-micro"
 
