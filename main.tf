@@ -14,10 +14,10 @@ resource "google_project_service" "compute_service" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform"
+  name         = "terraform001"
   machine_type = "f1-micro"
 
-  tags = ["terraform"]
+  tags = ["terraform001"]
 
   boot_disk {
     initialize_params {
