@@ -5,7 +5,7 @@ locals {
 provider "google" {
   project = local.project_id
   region  = "us-central1"
-  zone = "us-central1-b"
+  zone    = "us-central1-b"
 }
 
 resource "google_project_service" "compute_service" {
@@ -14,10 +14,11 @@ resource "google_project_service" "compute_service" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform001"
+  count        = 3
+  name         = "terraform-${count.index + 1}"
   machine_type = "f1-micro"
 
-  tags = ["terraform001"]
+  tags = ["terraform"]
 
   boot_disk {
     initialize_params {
